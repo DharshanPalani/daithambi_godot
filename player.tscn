@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4fch5kqg5u4f"]
+[gd_scene load_steps=5 format=3 uid="uid://c4fch5kqg5u4f"]
 
 [ext_resource type="Script" uid="uid://gaf0togmk23l" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://conh83xkptweh" path="res://interaction_ray.gd" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
@@ -14,6 +15,9 @@ script = ExtResource("1_4flbx")
 
 [node name="Camera3D" type="Camera3D" parent="RotationHelper"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.695092, -0.283973)
+
+[node name="Ray" type="RayCast3D" parent="RotationHelper/Camera3D"]
+script = ExtResource("2_onrkg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sh265")

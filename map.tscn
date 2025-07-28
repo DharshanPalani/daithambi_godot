@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu4v6h74y0p4x"]
+[gd_scene load_steps=9 format=3 uid="uid://bu4v6h74y0p4x"]
 
 [ext_resource type="PackedScene" uid="uid://c4fch5kqg5u4f" path="res://player.tscn" id="1_c7s6e"]
 [ext_resource type="PackedScene" uid="uid://3gcsfbfo2cc1" path="res://wall_1.tscn" id="2_wijl4"]
+[ext_resource type="PackedScene" uid="uid://oa2o6ig5luj5" path="res://door.tscn" id="3_e0an3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c7s6e"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -86,6 +87,9 @@ transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -2.55148, 1.5, 4.44774)
 
 [node name="Wall_6" parent="Walls/WallPack_3" instance=ExtResource("2_wijl4")]
 transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -7.55148, 1.5, 4.44774)
+
+[node name="Door" parent="Walls/WallPack_3" instance=ExtResource("3_e0an3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.635052, -2.5, 3.07714)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, 5, 0.498044)
