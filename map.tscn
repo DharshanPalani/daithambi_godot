@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://bu4v6h74y0p4x"]
+
+[ext_resource type="PackedScene" uid="uid://c4fch5kqg5u4f" path="res://player.tscn" id="1_c7s6e"]
+[ext_resource type="PackedScene" uid="uid://3gcsfbfo2cc1" path="res://wall_1.tscn" id="2_wijl4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c7s6e"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_wijl4"]
+sky_material = SubResource("ProceduralSkyMaterial_c7s6e")
+
+[sub_resource type="Environment" id="Environment_e0an3"]
+background_mode = 2
+sky = SubResource("Sky_wijl4")
+tonemap_mode = 2
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_e6lj2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e6lj2"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e0an3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_e6lj2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("PlaneMesh_e6lj2")
+
+[node name="Player" parent="." instance=ExtResource("1_c7s6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176207, 1.92396, -1.35869)
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="WallPack_1" type="Node3D" parent="Walls"]
+
+[node name="Wall_1" parent="Walls/WallPack_1" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, 2.44852, 1.5, -4.55226)
+
+[node name="Wall_2" parent="Walls/WallPack_1" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -2.55148, 1.5, -4.55226)
+
+[node name="Wall_3" parent="Walls/WallPack_1" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -7.55148, 1.5, -4.55226)
+
+[node name="WallPack_4" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Wall_1" parent="Walls/WallPack_4" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, 2.44852, 1.5, -4.55226)
+
+[node name="Wall_2" parent="Walls/WallPack_4" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -2.55148, 1.5, -4.55226)
+
+[node name="Wall_3" parent="Walls/WallPack_4" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -7.55148, 1.5, -4.55226)
+
+[node name="WallPack_2" type="Node3D" parent="Walls"]
+
+[node name="Wall_4" parent="Walls/WallPack_2" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, 2.44852, 1.5, 4.44774)
+
+[node name="Wall_5" parent="Walls/WallPack_2" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -2.55148, 1.5, 4.44774)
+
+[node name="Wall_6" parent="Walls/WallPack_2" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -7.55148, 1.5, 4.44774)
+
+[node name="WallPack_3" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Wall_4" parent="Walls/WallPack_3" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, 2.44852, 1.5, 4.44774)
+
+[node name="Wall_5" parent="Walls/WallPack_3" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -2.55148, 1.5, 4.44774)
+
+[node name="Wall_6" parent="Walls/WallPack_3" instance=ExtResource("2_wijl4")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -7.55148, 1.5, 4.44774)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, 5, 0.498044)
+light_color = Color(0.819456, 0.505199, 0.705097, 1)
+
+[node name="Wall_1" parent="." instance=ExtResource("2_wijl4")]
+transform = Transform3D(25.485, 0, 0, 0, -4.37114e-07, 1, 0, -10, -4.37114e-08, -2.60476, 5.5, -0.115059)
